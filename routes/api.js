@@ -3,9 +3,13 @@ const router = express.Router();
 
 const mongoose = require('mongoose');
 
-const Student = require("../models/user")
+const Student = require("../models/user");
+const methodOverride = require('method-override');
 
 router.use(express.urlencoded({ extended: true }));
+
+
+//create route
 
 router.get('/create', (req, res) => {
     //console.log("you invoke create function")
@@ -26,5 +30,18 @@ router.post('/create', async(req, res) => {
     }
 })
 
+
+//delete Route
+
+router.use(methodOverride('_method'));
+
+router.delete('/delete/:_id', async(req, res) => {
+    try {
+        await Student.findByIdAndDelete(req.params._id);
+        res.redirect('/');
+    } catch (e) {
+        console.log(e);
+    }
+})
 
 module.exports = router;

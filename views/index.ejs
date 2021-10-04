@@ -16,15 +16,21 @@
         <div class="card w-75">
             <div class="card-body">
                 <h5 class="card-title">
+                    NAME:-
                     <%= student.name %>
                 </h5>
                 <p class="card-text">
+                    Roll:-
                     <%= student.roll %>
                 </p>
                 <p class="card-text">
+                    Email:-
                     <%= student.email %>
                 </p>
                 <a href="#" class="btn btn-primary">Update</a>
+                <form action="/api/delete/<%= student.id %>?_method=DELETE" method="POST" class="d-inline">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
             </div>
         </div>
         <% }); %>
