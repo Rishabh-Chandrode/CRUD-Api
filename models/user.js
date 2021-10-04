@@ -5,7 +5,7 @@ const UserSchema = new mongoose.Schema({
         type: String
     },
     roll: {
-        type: String
+        type: Number
     },
     email: {
         type: String
@@ -13,4 +13,4 @@ const UserSchema = new mongoose.Schema({
 })
 
 
-module.exports = mongoose.model("student", UserSchema);
+module.exports = mongoose.model("Student", UserSchema);
