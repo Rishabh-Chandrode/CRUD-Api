@@ -14,32 +14,34 @@
 <body>
     <%- include('partials/_navbar') %>
         <a href="api/create" class="btn btn-primary create-btn">Create</a>
-        <% students.forEach(student => { %>
-            <div class="card w-75">
-                <div class="card-body">
-                    <div class="card-content">
-                        <p class="card-title">
-                            NAME:-
-                            <%= student.name %>
-                        </p>
-                        <p class="card-text">
-                            Roll:-
-                            <%= student.roll %>
-                        </p>
-                        <p class="card-text">
-                            Email:-
-                            <%= student.email %>
-                        </p>
-                    </div>
-                    <div class="buttons">
-                        <a href="/api/update/<%= student.id %>  " class="btn btn-primary">Update</a>
-                        <form action="/api/delete/<%= student.id %>?_method=DELETE" method="POST" class="d-inline">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+        <div class="cards">
+            <% students.forEach(student => { %>
+                <div class="card w-75">
+                    <div class="card-body">
+                        <div class="card-content">
+                            <p class="card-title">
+                                NAME:-
+                                <%= student.name %>
+                            </p>
+                            <p class="card-text">
+                                Roll:-
+                                <%= student.roll %>
+                            </p>
+                            <p class="card-text">
+                                Email:-
+                                <%= student.email %>
+                            </p>
+                        </div>
+                        <div class="buttons">
+                            <a href="/api/update/<%= student.id %>  " class="btn btn-primary">Update</a>
+                            <form action="/api/delete/<%= student.id %>?_method=DELETE" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <% }); %>
+                <% }); %>
+        </div>
 </body>
 
 </html>
