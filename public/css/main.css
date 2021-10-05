@@ -1,0 +1,22 @@
+.create-btn {
+    float: right;
+    margin: 10px;
+    margin-right: 45px;
+}
+
+p {
+    margin-bottom: 2px !important;
+}
+
+.card-body {
+    margin-left: 15px;
+    border: 2px solid black;
+}
+
+.card-content {
+    display: inline-block;
+}
+
+.buttons {
+    float: right;
+}
