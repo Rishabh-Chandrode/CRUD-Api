@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
-const alert = require('alert');
+
 
 
 const UserSchema = new mongoose.Schema({
@@ -11,12 +10,17 @@ const UserSchema = new mongoose.Schema({
     roll: {
         type: Number,
         unique: true,
-        required: true
+        required: true,
+        validate(value) {
+            if (value < 0) {
+                throw new Error("roll cant be negative");
+            }
+        }
     },
     email: {
         type: String,
         required: true,
-        unique: true,
+        unique: true
     }
 })
 

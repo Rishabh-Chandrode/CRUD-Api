@@ -10,26 +10,30 @@
 </head>
 
 <body>
-    <%- include('partials/_navbar') %>
-        <form method="POST" action="/api/create">
-            <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" class="form-control name" id="name">
-
+    <%- include('partials/_navbar')%>
+        <% alert.forEach(error => { %>
+            <div class="alert alert-warning" role="alert">
+                <%= error.msg %>
             </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control" id="email">
+            <% }) %>
+                <form method="POST" action="/api/create">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control name" id="name">
 
-            </div>
-            <div class="mb-3">
-                <label for="roll" class="form-label">Roll</label>
-                <input type="number" name="roll" class="form-control roll" id="roll">
-            </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" name="email" type="email" class="form-control" id="email">
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+                    </div>
+                    <div class="mb-3">
+                        <label for="roll" class="form-label">Roll</label>
+                        <input type="number" name="roll" min="0" class="form-control roll" id="roll">
+                    </div>
 
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
 </body>
 
 </html>
